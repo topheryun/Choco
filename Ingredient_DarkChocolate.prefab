@@ -52,4 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Dark Chocolate
-  sprite: {fileID: 21300000, guid: 95b7d9bf97e5a8d449285e2ffa27ef0a, type: 3}
+  sprite: {fileID: 21300000, guid: c59f2ffdafc673e4aa5cb93322abbacd, type: 3}

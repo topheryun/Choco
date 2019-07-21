@@ -12,7 +12,7 @@ public class IngredientInventory : MonoBehaviour {
 
 	void Start () {
 		IngredientInventoryDisplay display = (IngredientInventoryDisplay)Instantiate(ingredientInventoryDisplayPrefab);
-		//display.Prime(this);
+		display.Prime(this);
 	}
 	
 	void Update () {
@@ -21,6 +21,6 @@ public class IngredientInventory : MonoBehaviour {
 	
 	public void Display() {
 		IngredientInventoryDisplay display = (IngredientInventoryDisplay)Instantiate (ingredientInventoryDisplayPrefab);
-		//display.Prime (this);
+		display.Prime (this);
 	}
 }
