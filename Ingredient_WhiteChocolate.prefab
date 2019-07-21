@@ -52,4 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: White Chocolate
-  sprite: {fileID: 21300000, guid: 1818aa9718605e244aa86126c482c33b, type: 3}
+  sprite: {fileID: 21300000, guid: bc4e0da4a9b2d684b8a9ca074262925a, type: 3}
