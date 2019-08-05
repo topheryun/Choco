@@ -21,12 +21,20 @@ public class BaseIngredientDisplay : MonoBehaviour {
 		
 	}
 	
-	public void Prime(BaseIngredient ingredient){
+	public void Prime(BaseIngredient ingredient) {
 		this.ingredient = ingredient;
+		if (ingredient == null) {
+			if (textName != null)
+				textName.text = "";
+			if (sprite != null)
+				sprite.sprite = null;
+			return;
+		}
+		
 		if (textName != null)
 			textName.text = ingredient.displayName;
-		//if (sprite != null)
-		//	sprite.sprite = ingredient.sprite;
+		if (sprite != null)
+			sprite.sprite = ingredient.sprite;
 	}
 	
 	public void Click() {

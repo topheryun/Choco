@@ -7,7 +7,7 @@ public class ChocolateInventoryDisplay : MonoBehaviour {
 	public Transform targetTransform;
 	public BaseIngredientDisplay ingredientDisplayPrefab;
 	
-	public ChocolateInventory inventory;
+	public ChocolateInventory CInventory;
 
 	void Start () {
 		ChocolateInventory.onChanged += HandleonChanged;
@@ -17,18 +17,22 @@ public class ChocolateInventoryDisplay : MonoBehaviour {
 		ChocolateInventory.onChanged -= HandleonChanged;
 	}
 	
-	void HandleonChanged (ChocolateInventory inventory) {
-		if (this.inventory == inventory)
-			Prime (inventory);
+	void HandleonChanged (ChocolateInventory CInventory) {
+		if (this.CInventory == CInventory)
+			Prime (CInventory);
 	}
 	
 	void Update () {
 		
 	}
 	
-	public void Prime(ChocolateInventory inventory) {
-		this.inventory = inventory;
-		List<BaseIngredient> ingredients = inventory.ingredients;
+	public void Prime(ChocolateInventory CInventory) {
+		for (int i = 0; i < targetTransform.childCount; i++) {
+			Destroy(targetTransform.GetChild(i).gameObject);
+		}
+		
+		this.CInventory = CInventory;
+		List<BaseIngredient> ingredients = CInventory.ingredients;
 		
 		foreach (BaseIngredient ingredient in ingredients) {
 			BaseIngredientDisplay display = (BaseIngredientDisplay)Instantiate(ingredientDisplayPrefab);
