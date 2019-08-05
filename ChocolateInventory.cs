@@ -6,13 +6,12 @@ public class ChocolateInventory : MonoBehaviour {
 
 	public List<BaseIngredient> ingredients = new List<BaseIngredient>();
 	public ChocolateInventoryDisplay chocolateInventoryDisplayPrefab;
-	public delegate void ChocolateInventoryDelegate(ChocolateInventory inventory);
+	public delegate void ChocolateInventoryDelegate(ChocolateInventory CInventory);
 	public static event ChocolateInventoryDelegate onChanged;
 
 
 	void Start () {
-		ChocolateInventoryDisplay display = (ChocolateInventoryDisplay)Instantiate(chocolateInventoryDisplayPrefab);
-		display.Prime(this);
+
 	}
 	
 	void Update () {
@@ -22,5 +21,20 @@ public class ChocolateInventory : MonoBehaviour {
 	public void Display() {
 		ChocolateInventoryDisplay display = (ChocolateInventoryDisplay)Instantiate (chocolateInventoryDisplayPrefab);
 		display.Prime (this);
+	}
+	
+	public void Add (BaseIngredient ingredient) {
+		if (ingredient == null) return;
+		ingredients.Add(ingredient);
+		if (onChanged != null)
+			onChanged.Invoke(this);
+	}
+	
+	public void Remove (BaseIngredient ingredient) {
+		if (ingredient == null) return;
+		if (! ingredients.Contains (ingredient)) return;
+		ingredients.Remove(ingredient);
+		if (onChanged != null)
+			onChanged.Invoke (this);
 	}
 }
